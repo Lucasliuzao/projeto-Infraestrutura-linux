@@ -2,7 +2,10 @@
 
 echo "Criando os diretórios..."
 
-mkdir publico adm ven sec
+mkdir /publico 
+mkdir /adm 
+mkdir /ven 
+mkdir /sec
 
 echo "Criando os grupos...."
 
@@ -33,10 +36,6 @@ passwd amanda -e
 useradd rogerio -c "rogerio Eduardo" -s /bin/bash -m -p $(openssl passwd rogerio123) -G GRP_SEC
 passwd rogerio -e
 
-echo "Setando as permissões no diretório publico..."
-
-chmod 777 /publico
-
 echo "setando dono e grupos dos diretórios..."
 
 chown root:GRP_ADM /adm
@@ -48,7 +47,6 @@ echo "setando permissões dos diretórios..."
 chmod 770 /adm
 chmod 770 /ven
 chmod 770 /sec
+chmod 777 /publico
 
-
-
-
+echo "Infraestrutura criada"
